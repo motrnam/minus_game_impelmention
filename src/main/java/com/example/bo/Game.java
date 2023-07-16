@@ -34,7 +34,7 @@ public class Game {
     }
 
     private void initNumberMap() {
-        int temp = 0;
+        int temp;
         for (int i = 0; i < levels.getHeight(); i++)
             for (int j = 0; j < levels.getWidth(); j++) {
                 temp = 0;
@@ -83,30 +83,6 @@ public class Game {
     public void removeBomb(int x, int y) {
         if (remindedBomb < levels.getNumberOfBomb())
             remindedBomb++;
-    }
-
-    private ArrayList<Cell> getNeighbour(int x, int y) {
-        ArrayList<Cell> result = new ArrayList<>();
-        if (x != 0 && x != levels.getHeight() - 1) {
-            result.add(new Cell(x - 1, y));
-            result.add(new Cell(x + 1, y));
-        } else if (x == 0) {
-            result.add(new Cell(1, y));
-        } else if (x == levels.getHeight() - 1) {
-            result.add(new Cell(x - 1, y));
-        }
-
-
-        if (y != 0 && y != levels.getWidth() - 1) {
-            result.add(new Cell(x, y - 1));
-            result.add(new Cell(x, y + 1));
-        } else if (y == 0) {
-            result.add(new Cell(x, 1));
-        } else if (y == levels.getWidth() - 1) {
-            result.add(new Cell(x, y - 1));
-        }
-        // result is my Array
-        return result;
     }
 
     private boolean checkBounds(int x, int y) {
